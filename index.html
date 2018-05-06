@@ -1,0 +1,102 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Thumbnail Template">
+  <title>Thumbnail by Ikhlaque Ahmed</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/bootstrap-grid.min.css">
+  <link rel="stylesheet" href="css/bootstrap-reboot.min.css">
+  <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+
+  <style type="text/css">
+    .fa{
+      color:red;
+    }
+    
+    .overlay{
+      position: relative;
+      overflow: hidden;
+      cursor: default;
+    }
+    .mask{
+      position: absolute;
+      top : 0;
+      overflow: hidden;
+      width: 100%;
+      height: 100%;
+      background-attachment: fixed;
+    }
+
+    .flex-center{
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: center;
+      -webkit-justify-content: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+      -ms-flex-align: center;
+      align-items: center;
+      height: 100%;
+    }
+    .overlay .mask {
+        opacity: 0;
+        -webkit-transition: all .4s ease-in-out;
+        -o-transition: all .4s ease-in-out;
+        transition: all .4s ease-in-out;
+    }
+
+    .overlay .mask:hover {
+      opacity: 1;
+      background-color: rgba(244,67,54,.1);
+    }
+
+  </style>
+  
+  
+</head>
+<body>
+
+
+    <div class="container">
+
+      <h1 class="my-4 text-center">Thumbnail Gallery</h1>
+
+      <div class="row text-center">
+
+        <div class="col-lg-3 col-md-4 col-xs-6">
+          
+          <div class="overlay">
+            <a href="#" class="d-block">
+              <img class="img-fluid img-thumbnail" src="http://placehold.it/400x300" alt="">
+            </a>
+            <div class="mask flex-center">
+              <a href="#"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+            </div>
+          </div>
+
+        </div>
+
+        
+
+
+
+      </div>
+
+    </div>
+    <!-- /.container -->
+
+
+
+<script src="js/jquery/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+  
+</body>
+</html>
