@@ -14,7 +14,7 @@
 
   <style type="text/css">
     .fa{
-      color:red;
+      color:#000;
     }
     
     .overlay{
@@ -55,7 +55,16 @@
 
     .overlay .mask:hover {
       opacity: 1;
-      background-color: rgba(244,67,54,.1);
+      background-color: rgba(255,255,255,0.6);
+    }
+  
+    .overlay .fa{
+      font-size: 20px;
+    }
+
+    .overlay .mask .close-icon{    
+      position: absolute;
+      right: 0;
     }
 
   </style>
@@ -65,38 +74,75 @@
 <body>
 
 
-    <div class="container">
+<div class="container">
 
-      <h1 class="my-4 text-center">Thumbnail Gallery</h1>
+  <h1 class="my-4 text-center">Thumbnail Gallery</h1>
 
-      <div class="row text-center">
+  <div class="row text-center gallery">
+    <!-- Append code here using javascript -->
+  </div>
 
-        <div class="col-lg-3 col-md-4 col-xs-6">
-          
-          <div class="overlay">
-            <a href="#" class="d-block">
-              <img class="img-fluid img-thumbnail" src="http://placehold.it/400x300" alt="">
-            </a>
-            <div class="mask flex-center">
-              <a href="#"><i class="fa fa-pencil" aria-hidden="true"></i></a>
-            </div>
-          </div>
+</div>
+<!-- /.container -->
 
-        </div>
-
-        
-
-
-
+<!-- Modal -->
+<div class="modal fade" id="uploadImage" tabindex="-1" role="dialog" aria-labelledby="uploadImage" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Edit Image:</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
-
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-lg-6 col-md-6 col-xs-6">
+            Original Image: 
+            <div class="Original_image"><img class="img-fluid img-thumbnail" src="img/1.jpg" alt=""></div>
+          </div>
+          <div class="col-lg-6 col-md-6 col-xs-6">
+            New Image: 
+            <img class="img-fluid img-thumbnail" src="img/dummy.png" alt="">
+            <input type="file" name="file" id="file" />
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
     </div>
-    <!-- /.container -->
+  </div>
+</div>  
 
 
 
 <script src="js/jquery/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
+
+<script type="text/javascript">
+  var img_array = ['img/1.jpg', 'img/2.jpg', 'img/3.jpg', 'img/4.jpg', 'img/5.jpg', 'img/6.jpg', 'img/7.jpg', 'img/8.jpg'];
+
+  jQuery.each( img_array, function( i, val ) {
+    jQuery('.gallery').append('<div class="col-lg-3 col-md-4 col-xs-6"><div class="overlay"><a href="#" class="d-block"><img class="img-fluid img-thumbnail" src="'+val+'" alt=""></a><div class="mask"><a href="#" class="close-icon"><i class="fa fa-times" aria-hidden="true"></i></a><div class="flex-center"><a href="javascript:void(0);" data-toggle="modal" data-target="#uploadImage" class="edit"><i class="fa fa-pencil" aria-hidden="true"></i></a></div></div></div></div>');
+  });
+
+  jQuery('.edit').click(function(){
+
+    var img_url = $(this).closest('.overlay').find('.img-thumbnail').attr('src');
+    $('.Original_image img').attr('src', img_url);
+
+  });
+
+  jQuery('.close-icon').click(function(){
+
+    $(this).closest('.overlay').parent('div').remove();
+
+  });
+
+
+</script>
   
 </body>
 </html>
